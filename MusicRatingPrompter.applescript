@@ -1,7 +1,9 @@
 property lastTrackID : ""
 property lastTrackFinished : false
--- Set to 1 to play the system alert sound when the rating dialog opens; 0 for silent (default).
+-- Set playPromptBeep 1 to play the system alert sound when the rating dialog opens; 0 for silent (default).
 property playPromptBeep : 0
+-- Set bringPromptToFront 1 to bring the rating dialog to the foreground (default); 0 to leave focus unchanged.
+property bringPromptToFront : 1
 
 on run
 	display notification "Monitoring Apple Music for unrated tracks." with title "Music Rating Prompter"
@@ -111,6 +113,7 @@ on chooseRating(ratingChoices, promptText)
 	end if
 	
 	try
+		activate
 		set userChoice to choose from list ratingChoices with title "Rate Finished Song" with prompt promptText default items {"3 Stars"}
 	on error errMsg number errNum
 		if playPromptBeep is 0 then set volume alert volume savedAlertVolume
