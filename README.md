@@ -9,7 +9,6 @@ When a track ends and has no rating (0 stars), a dialog appears so you can assig
 - macOS
 - [Apple Music](https://www.apple.com/apple-music/) (the app formerly known as iTunes)
 - Automation permission for Music
-- Accessibility permission for System Events (used to position the rating dialog)
 
 ## Quick start
 
@@ -44,10 +43,7 @@ This runs `osacompile` with the stay-open flag and produces `Music Rating Prompt
 
 ## First launch
 
-macOS may ask you to grant permissions before the app can control Music and move the rating dialog:
-
-1. **Automation** — allow Music Rating Prompter to control **Music**.
-2. **Accessibility** — allow Music Rating Prompter (or **Script Editor**, if testing from source) to control your computer via **System Events**.
+macOS may ask you to grant Automation permission so Music Rating Prompter can control **Music**.
 
 You can review or change these later in **System Settings → Privacy & Security**.
 
