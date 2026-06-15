@@ -56,12 +56,19 @@ You can review or change these later in **System Settings → Privacy & Security
 
 ## Configuration
 
-At the top of `MusicRatingPrompter.applescript`, `playPromptBeep` controls the alert sound when the rating dialog opens:
+At the top of `MusicRatingPrompter.applescript`, two options control how the rating dialog behaves:
+
+**`playPromptBeep`** — alert sound when the dialog opens:
 
 - `0` (default) — silent dialog
 - `1` — play the macOS alert sound
 
-Re-export or rebuild the application after changing this value.
+**`bringPromptToFront`** — whether the dialog takes focus:
+
+- `1` (default) — bring Music Rating Prompter to the foreground
+- `0` — leave focus on your current app (the dialog may appear in the background)
+
+Re-export or rebuild the application after changing either value.
 
 ## Troubleshooting
 

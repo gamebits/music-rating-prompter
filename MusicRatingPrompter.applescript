@@ -2,6 +2,8 @@ property lastTrackID : ""
 property lastTrackFinished : false
 -- Set to 1 to play the system alert sound when the rating dialog opens; 0 for silent (default).
 property playPromptBeep : 0
+-- Set to 1 to bring the rating dialog to the foreground; 0 to leave focus unchanged (default).
+property bringPromptToFront : 1
 
 on run
 	display notification "Monitoring Apple Music for unrated tracks." with title "Music Rating Prompter"
