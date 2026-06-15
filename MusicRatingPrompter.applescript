@@ -111,6 +111,7 @@ on chooseRating(ratingChoices, promptText)
 	end if
 	
 	try
+		activate
 		set userChoice to choose from list ratingChoices with title "Rate Finished Song" with prompt promptText default items {"3 Stars"}
 	on error errMsg number errNum
 		if playPromptBeep is 0 then set volume alert volume savedAlertVolume
