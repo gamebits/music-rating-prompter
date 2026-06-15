@@ -54,6 +54,15 @@ You can review or change these later in **System Settings → Privacy & Security
 3. When a song finishes and has 0 stars, choose a rating from the dialog or dismiss it to skip.
 4. Quit the app when you no longer want prompts (it does not exit on its own).
 
+## Configuration
+
+At the top of `MusicRatingPrompter.applescript`, `playPromptBeep` controls the alert sound when the rating dialog opens:
+
+- `0` (default) — silent dialog
+- `1` — play the macOS alert sound
+
+Re-export or rebuild the application after changing this value.
+
 ## Troubleshooting
 
 **The app seems to do nothing after launch**

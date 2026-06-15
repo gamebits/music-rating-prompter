@@ -1,5 +1,7 @@
 property lastTrackID : ""
 property lastTrackFinished : false
+-- Set to 1 to play the system alert sound when the rating dialog opens; 0 for silent (default).
+property playPromptBeep : 0
 
 on run
 	display notification "Monitoring Apple Music for unrated tracks." with title "Music Rating Prompter"
@@ -87,7 +89,7 @@ on promptForFinishedTrack(trackID)
 		set promptText to "Track: " & trackName & return & "Artist: " & artistName & return & return & "Choose a rating:"
 		
 		set ratingChoices to {"0 Stars", "1 Star", "2 Stars", "3 Stars", "4 Stars", "5 Stars"}
-		set userChoice to choose from list ratingChoices with title "Rate Finished Song" with prompt promptText default items {"3 Stars"}
+		set userChoice to my chooseRating(ratingChoices, promptText)
 		
 		if userChoice is not false then
 			set ratingValue to (first character of (item 1 of userChoice)) as integer
@@ -100,6 +102,25 @@ on promptForFinishedTrack(trackID)
 		log "Music Rating Prompter: " & errMsg & " (" & errNum & ")"
 	end try
 end promptForFinishedTrack
+
+on chooseRating(ratingChoices, promptText)
+	set savedAlertVolume to alert volume of (get volume settings)
+	
+	if playPromptBeep is 0 then
+		set volume alert volume 0
+	end if
+	
+	try
+		set userChoice to choose from list ratingChoices with title "Rate Finished Song" with prompt promptText default items {"3 Stars"}
+	on error errMsg number errNum
+		if playPromptBeep is 0 then set volume alert volume savedAlertVolume
+		error errMsg number errNum
+	end try
+	
+	if playPromptBeep is 0 then set volume alert volume savedAlertVolume
+	
+	return userChoice
+end chooseRating
 
 on findTrackByPersistentID(trackID)
 	tell application "Music"
