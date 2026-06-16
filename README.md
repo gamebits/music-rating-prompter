@@ -4,6 +4,19 @@ An AppleScript stay-open application for macOS that prompts you to rate each App
 
 When a track ends and has no rating (0 stars), a dialog appears so you can assign 1–5 stars. Tracks that already have a rating are left alone.
 
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Quick start](#quick-start)
+- [Build from source](#build-from-source)
+  - [Option 1: Script Editor](#option-1-script-editor)
+  - [Option 2: Command line](#option-2-command-line)
+- [First launch](#first-launch)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+
 ## Requirements
 
 - macOS
